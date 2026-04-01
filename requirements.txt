@@ -1,0 +1,12 @@
+setuptools<82.0.0
+ipykernel
+notebook
+jupyter
+scikit-learn
+pandas
+numpy
+tensorflow
+tensorboard
+streamlit
+matplotlib
+seaborn
