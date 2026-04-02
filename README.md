@@ -7,6 +7,7 @@ It includes:
 - ANN model training
 - Saved model and preprocessing artifacts for inference
 - A separate notebook for prediction/inference
+- A Streamlit dashboard for churn prediction
 
 ## Project Structure
 
@@ -14,6 +15,7 @@ It includes:
 Customer Churn Prediction ANN/
 |-- data/
 |   `-- Churn_Modelling.csv
+|-- app.py
 |-- notebook/
 |   |-- training.ipynb
 |   |-- prediction.ipynb
@@ -35,6 +37,7 @@ Customer Churn Prediction ANN/
 - Pandas, NumPy
 - Matplotlib, Seaborn
 - Jupyter Notebook
+- Streamlit
 
 ## Setup
 
@@ -76,12 +79,25 @@ Open and run:
 
 This notebook loads the trained model and preprocessing artifacts to make churn predictions for new customer inputs.
 
+## Streamlit Dashboard
+
+Run the app:
+
+```bash
+streamlit run app.py
+```
+
+The dashboard in `app.py`:
+- Accepts customer details as input
+- Applies saved preprocessing artifacts
+- Predicts churn probability using the trained ANN model
+- Displays whether the customer is likely to churn
+
 ## Current Scope
 
-This repository currently contains the model development workflow (training + prediction).
-
-Planned next step:
-- Build and deploy a Streamlit dashboard for interactive churn prediction.
+This repository currently contains:
+- Model development workflow (training + prediction notebooks)
+- Interactive Streamlit dashboard for real-time churn prediction
 
 ## Notes
 
