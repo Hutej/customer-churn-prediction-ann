@@ -54,6 +54,18 @@ geo_encoded_df = pd.DataFrame(geo_encoded, columns=onehot_encoder_geo.get_featur
 ### Concatination with onehot encoded data 
 input_data = pd.concat([input_data.reset_index(drop=True),geo_encoded_df], axis=1)
 
+# Make input columns match the columns used when the scaler was trained
+if hasattr(scalar, 'feature_names_in_'):
+    expected_columns = list(scalar.feature_names_in_)
+
+    # Add any missing columns with default value 0
+    for col in expected_columns:
+        if col not in input_data.columns:
+            input_data[col] = 0
+
+    # Reorder columns in the exact order expected by the scaler
+    input_data = input_data.reindex(columns=expected_columns)
+
 ### Scaling the input data
 input_data_scaled = scalar.transform(input_data)
 
